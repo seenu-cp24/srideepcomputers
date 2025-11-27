@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY SETTINGS
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-dev-secret")
-DEBUG = os.getenv("DEBUG", "True") == "True"
-ALLOWED_HOSTS = ['*', 'srideepcomputers.com', '18.60.54.104', 'localhost', '127.0.0.1']
+DEBUG = False #os.getenv("DEBUG", "True") == "True"
+ALLOWED_HOSTS = ['*', 'srideepcomputers.com', '18.60.144.120', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -112,6 +112,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # collectstatic will gather files here
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media files (uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
